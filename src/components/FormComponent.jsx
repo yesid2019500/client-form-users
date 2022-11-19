@@ -37,7 +37,7 @@ const handleSubmit = async (e) => {
         
     }else {
         const body =  {...formValues}  
-        await fetch('https://api-client-country-and-users-production.up.railway.app/api/user', {
+        await fetch( process.env.REACT_URI , {
             method: "POST",
             body: JSON.stringify(body),
             headers: { "Content-type": "application/json" },
@@ -61,13 +61,13 @@ if ( isLoading ) {
 
 <div class="container text-dark">
   <div class="row justify-content-center align-items-center">
-    <h1 className='text-white text-center mt-4' >Select your name and Country</h1>    
+    <h1 className='text-white text-center mt-4'>Select your name and Country</h1>    
   </div>
   <hr/>
-  <div class="row justify-content-center align-items-center h-100">
-    <div class="col col-sm-6 col-md-6 col-lg-4 col-xl-3">
+  <div className="row justify-content-center align-items-center h-100">
+    <div className="col col-sm-6 col-md-6 col-lg-4 col-xl-3">
       <form onSubmit={ handleSubmit } className="form" >
-        <div class="form-group">
+        <div className="form-group">
         <select name='pais'
          className='form-control'
             required
@@ -85,7 +85,7 @@ if ( isLoading ) {
              }
          </select>
         </div>
-        <div class="form-group text-center">
+        <div className="form-group text-center">
             <input 
            type="text"
             name='nombre'
@@ -95,10 +95,10 @@ if ( isLoading ) {
             className="form-control"
              />
         </div>
-        <div class="form-group text-center">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-12">
+        <div className="form-group text-center">
+          <div className="container">
+            <div className="row">
+              <div className="col-md-12">
               <button className='btn btn-success mt-4 btn-lg' onSubmit={ handleSubmit } >Send</button>
                 </div>
             </div>
